@@ -32,7 +32,7 @@ function Publishers() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/v1/publishers")
+      .get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/publishers")
       .then((res) => {
         setPublishers(res.data);
         setLoading(false);
@@ -53,7 +53,7 @@ function Publishers() {
     }
 
     axios
-      .post("http://localhost:8080/api/v1/publishers", newPublisher)
+      .post("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/publishers", newPublisher)
       .then(() => {
         setRefresh(!refresh);
         setNewPublisher({ name: "", establishmentYear: "", address: "" });
@@ -111,7 +111,7 @@ function Publishers() {
   
     // Güncelleme işlemi
     axios
-      .put(`http://localhost:8080/api/v1/publishers/${updatePublisher.id}`, updatePublisher)
+      .put(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/${updatePublisher.id}`, updatePublisher)
       .then(() => {
         setRefresh(!refresh);
         setUpdatePublisher({ id: "", name: "", establishmentYear: "", address: "" });
@@ -132,7 +132,7 @@ function Publishers() {
 
   const handleDeletePublisher = (id) => {
     axios
-      .delete(`http://localhost:8080/api/v1/publishers/${id}`)
+      .delete(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/publishers/${id}`)
       .then(() => {
         setRefresh(!refresh);
         toast.success("Yayıncı başarıyla silindi!");

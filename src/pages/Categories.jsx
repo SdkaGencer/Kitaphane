@@ -22,7 +22,7 @@ function Categories() {
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false); // Güncelleme modal durumu
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/categories").then((res) => {
+    axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/categories").then((res) => {
       setCategories(res.data);
       setLoading(false);
     });
@@ -32,7 +32,7 @@ function Categories() {
 
   const handleAddCategory = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/v1/categories", newCategory)
+    axios.post("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/categories", newCategory)
       .then(() => {
         toast.success("Yeni kategori eklendi!");
         setRefresh(!refresh);
@@ -58,7 +58,7 @@ function Categories() {
       return;
     }
 
-    axios.put(`http://localhost:8080/api/v1/categories/${updateCategory.id}`, updateCategory)
+    axios.put(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/categories/${updateCategory.id}`, updateCategory)
       .then(() => {
         toast.success("Kategori başarıyla güncellendi!");
         setRefresh(!refresh);
@@ -82,7 +82,7 @@ function Categories() {
   };
 
   const handleDeleteCategory = (id) => {
-    axios.delete(`http://localhost:8080/api/v1/categories/${id}`)
+    axios.delete(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/categories/${id}`)
       .then(() => {
         toast.success("Kategori silindi!");
         setRefresh(!refresh);

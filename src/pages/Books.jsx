@@ -36,21 +36,21 @@ function Books() {
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/books").then((res) => {
+    axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/books").then((res) => {
       setBooks(res.data);
       setLoading(false);
       setUpdate(false);
     });
 
-    axios.get("http://localhost:8080/api/v1/authors").then((res) => {
+    axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/authors").then((res) => {
       setAuthors(res.data);
     });
 
-    axios.get("http://localhost:8080/api/v1/publishers").then((res) => {
+    axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/publishers").then((res) => {
       setPublishers(res.data);
     });
 
-    axios.get("http://localhost:8080/api/v1/categories").then((res) => {
+    axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/categories").then((res) => {
       setCategories(res.data);
     });
   }, [update]);
@@ -85,7 +85,7 @@ function Books() {
     };
 
     axios
-      .post("http://localhost:8080/api/v1/books", bookData)
+      .post("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/books", bookData)
       .then((response) => {
         setBooks((prevBooks) => [...prevBooks, response.data]); // Listeyi güncelle
         setUpdate(true);
@@ -131,7 +131,7 @@ function Books() {
     };
 
     axios
-      .put(`http://localhost:8080/api/v1/books/${updateBook.id}`, updatedData)
+      .put(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/books/${updateBook.id}`, updatedData)
       .then((response) => {
         setBooks((prevBooks) =>
           prevBooks.map((book) =>
@@ -167,7 +167,7 @@ function Books() {
 
   const handleDeleteBook = (id) => {
     axios
-      .delete(`http://localhost:8080/api/v1/books/${id}`)
+      .delete(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/books/${id}`)
       .then(() => {
         setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id)); // Silinen kitabı listeden çıkar
         setUpdate(true);

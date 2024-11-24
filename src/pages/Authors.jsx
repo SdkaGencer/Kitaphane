@@ -31,7 +31,7 @@ function Authors() {
 
   //Verileri çektik
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/authors").then((res) => {
+    axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/authors").then((res) => {
       setAuthor(res.data);
       setLoading(false);
       setUpDate(true);
@@ -49,7 +49,7 @@ function Authors() {
       return;
     }
 
-    axios.post("http://localhost:8080/api/v1/authors", newAuthor).then(() => {
+    axios.post("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/authors", newAuthor).then(() => {
       toast.success('Yazar başarıyla eklendi!');
       setUpDate(false);
       setNewAuthor({ name: "", birthDate: "", country: "" });
@@ -84,7 +84,7 @@ function Authors() {
       return;
     }
 
-    axios.put("http://localhost:8080/api/v1/authors/" + upDateAuthor.id, upDateAuthor).then(() => {
+    axios.put("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/authors/" + upDateAuthor.id, upDateAuthor).then(() => {
       toast.success('Yazar başarıyla güncellendi!');
       setUpDate(false);
       setUpDateAuthor({ id: "", name: "", birthDate: "", country: "" });
@@ -97,7 +97,7 @@ function Authors() {
 
   //Yazar Silme fonk.
   const handleDeleteAuthors = (id) => {
-    axios.delete("http://localhost:8080/api/v1/authors/" + id).then(() => {
+    axios.delete("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/authors/" + id).then(() => {
       toast.success('Yazar başarıyla silindi!');
       setUpDate(false);
     }).catch((err) => {

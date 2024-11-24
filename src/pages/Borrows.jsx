@@ -33,8 +33,8 @@ function Borrows() {
     const fetchData = async () => {
       try {
         const [borrowsRes, booksRes] = await Promise.all([
-          axios.get("http://localhost:8080/api/v1/borrows"),
-          axios.get("http://localhost:8080/api/v1/books"),
+          axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/borrows"),
+          axios.get("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/books"),
         ]);
         setBorrows(borrowsRes.data);
         setBooks(booksRes.data);
@@ -64,7 +64,7 @@ function Borrows() {
     }
 
     axios
-      .post("http://localhost:8080/api/v1/borrows", newBorrow)
+      .post("https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/borrows", newBorrow)
       .then((response) => {
         setBorrows((prevBorrows) => [...prevBorrows, response.data]); // Yeni borcu listeye ekle
         setNewBorrow({
@@ -120,7 +120,7 @@ function Borrows() {
 
     axios
       .put(
-        `http://localhost:8080/api/v1/borrows/${updateBorrow.id}`,
+        `https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/borrows/${updateBorrow.id}`,
         updateBorrow
       )
       .then((response) => {
@@ -145,7 +145,7 @@ function Borrows() {
 
   const handleDeleteBorrow = (id) => {
     axios
-      .delete(`http://localhost:8080/api/v1/borrows/${id}`)
+      .delete(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/borrows/${id}`)
       .then(() => {
         setBorrows((prevBorrows) => prevBorrows.filter((borrow) => borrow.id !== id)); // Silinen borcu listeden çıkar
         toast.success("Ödünç alma işlemi başarıyla silindi.");
