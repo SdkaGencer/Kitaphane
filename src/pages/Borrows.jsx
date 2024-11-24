@@ -29,7 +29,7 @@ function Borrows() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => {  //burası önemli
     const fetchData = async () => {
       try {
         const [borrowsRes, booksRes] = await Promise.all([
@@ -58,7 +58,7 @@ function Borrows() {
     }
 
     const selectedBook = books.find(book => book.id === parseInt(newBorrow.bookForBorrowingRequest.id));
-    if (selectedBook && selectedBook.stock <= 0) {
+    if (selectedBook && selectedBook.stock <= 0) {  //stok kontrolü
       toast.error("Bu kitaptan kalmadı.");
       return;
     }

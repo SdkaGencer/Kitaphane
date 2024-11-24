@@ -8,7 +8,7 @@ function Books() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [update, setUpdate] = useState(false);
-  const [updateBook, setUpdateBook] = useState({
+  const [updateBook, setUpdateBook] = useState({ //Burda veriyi sağlayan yerdeki şemaya uygun yapı oluşturmak önemli.
     id: "",
     name: "",
     publicationYear: "",
@@ -58,14 +58,14 @@ function Books() {
   if (loading) {
     return <div>Yükleniyor...</div>;
   }
-
-  const handleAddBook = () => {
+ //Ekleme
+  const handleAddBook = () => {  //Tüm inputların doluluğunu kontrol ediyorum
     if (!newBook.name || !newBook.publicationYear || !newBook.stock || !newBook.author || !newBook.publisher || !newBook.categories) {
       toast.error("Tüm alanları doldurduğunuzdan emin olun.");
       return;
     }
 
-    if (newBook.stock <= 0) {
+    if (newBook.stock <= 0) {         //Stok için kontrol
       toast.error("Stok değeri 0 veya negatif olamaz.");
       return;
     }
@@ -106,6 +106,7 @@ function Books() {
       });
   };
 
+  //Güncelleme fonk.
   const handleUpdateBook = () => {
     if (!updateBook.name || !updateBook.publicationYear || !updateBook.stock || !updateBook.author.id || !updateBook.publisher.id || !updateBook.categories[0].id) {
       toast.error("Tüm alanları doldurduğunuzdan emin olun.");

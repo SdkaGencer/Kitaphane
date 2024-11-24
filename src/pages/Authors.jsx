@@ -1,32 +1,35 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Modal from 'react-modal';
-import { toast } from 'react-toastify';
+import Modal from 'react-modal';   //modalı dahil ettik
+import { toast } from 'react-toastify'; //react toastı dahil ettik
 import 'react-toastify/dist/ReactToastify.css';
 
 Modal.setAppElement('#root');
 
 function Authors() {
-  const [authors, setAuthor] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [authors, setAuthor] = useState([]);  
+  const [loading, setLoading] = useState(true); //yükleniyor yazısı
   const [upDate, setUpDate] = useState(false);
 
-  const [newAuthor, setNewAuthor] = useState({
+  const [newAuthor, setNewAuthor] = useState({      //yeni yazar eklemek için
     name: "",
     birthDate: "",
     country: ""
   });
 
-  const [upDateAuthor, setUpDateAuthor] = useState({
+  const [upDateAuthor, setUpDateAuthor] = useState({   // yazar güncellemek için
     id: "",
     name: "",
     birthDate: "",
     country: ""
   });
 
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  //modalların açıklığını kontrol için
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);   
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
 
+
+  //Verileri çektik
   useEffect(() => {
     axios.get("http://localhost:8080/api/v1/authors").then((res) => {
       setAuthor(res.data);
@@ -39,6 +42,7 @@ function Authors() {
     return <div>Yükleniyor...</div>;
   }
 
+  //yeni yazar ekleme fonk.
   const handleAddAuthors = () => {
     if (!newAuthor.name || !newAuthor.country || !newAuthor.birthDate) {
       toast.error('Tüm alanları doldurun!');
@@ -72,7 +76,8 @@ function Authors() {
     setUpDateAuthor(auth);
     setIsUpdateModalOpen(true);
   };
-
+ 
+  //Yazar güncelleme fonk.
   const handleUpdateAuthor = () => {
     if (!upDateAuthor.name || !upDateAuthor.country) {
       toast.error('İsim ve ülke alanı boş olamaz!');
@@ -90,6 +95,7 @@ function Authors() {
     });
   };
 
+  //Yazar Silme fonk.
   const handleDeleteAuthors = (id) => {
     axios.delete("http://localhost:8080/api/v1/authors/" + id).then(() => {
       toast.success('Yazar başarıyla silindi!');
