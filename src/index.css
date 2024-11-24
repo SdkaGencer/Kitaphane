@@ -1,0 +1,167 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+  
+body {
+    font-family: 'Arial', sans-serif;
+    background-image:url(kutuphane.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #333;
+    padding: 20px;
+  }
+  
+
+.container{
+    margin-top: 35px;
+    margin-left: 15%;
+    margin-right:15%;
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+    text-align: center;
+    background-color: #C2A384;
+}
+
+.navbar{
+    display:flex;
+    gap:50px;
+    justify-content:center;
+}
+
+.navbar .option{
+    border:2px solid rgb(105, 23, 23);
+    border-radius: 8px;
+    padding:10px 20px;
+    background-color: #8A5A2C;
+    text-decoration: none;
+    font-weight: 800;
+    color:white;
+    position:relative;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.option:active {
+    transform: scale(0.95); /* Tıklanınca hafif küçülme efekti */
+    background-color:#C2A384 /* Chocolate Brown */
+    ;
+    
+  }
+
+ 
+
+  /* Başlık ve Genel Stil */
+  h1, h2, h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:white;
+  }
+  
+  button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color:#8A5A2C;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color:maroon;
+  }
+  
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  input[type="date"] {
+    width: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color:#ae5909;
+    color: white;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  td button {
+    background-color:rgb(159, 92, 10);
+    margin-right: 10px;
+  }
+  
+  td button:hover {
+    background-color: #c0392b;
+  }
+  
+  select:focus, input:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+  
+  /* Modal için Stil */
+  .ReactModal__Overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .ReactModal__Content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    position: relative;
+  }
+  
+  .ReactModal__Close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Toast Mesajları için Stil */
+  .Toastify__toast--success {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .Toastify__toast--error {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .Toastify__toast {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  
