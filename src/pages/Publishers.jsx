@@ -111,7 +111,7 @@ function Publishers() {
   
     // Güncelleme işlemi
     axios
-      .put(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/publishers${updatePublisher.id}`, updatePublisher)
+      .put(`https://distinctive-laurianne-sidika-3ce48187.koyeb.app/api/v1/publishers/${updatePublisher.id}`, updatePublisher)
       .then(() => {
         setRefresh(!refresh);
         setUpdatePublisher({ id: "", name: "", establishmentYear: "", address: "" });
